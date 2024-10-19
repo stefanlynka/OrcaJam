@@ -21,9 +21,9 @@ public class PlayerInput : MonoBehaviour
         );
 
         // set target rotation angle based on mouse location
-        Vector2 directionToMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
-        movement.SetTargetRotation(angle);
+        // Vector2 directionToMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        // float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+        // movement.SetTargetRotation(angle);
 
     }
 }

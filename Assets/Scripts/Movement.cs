@@ -22,12 +22,12 @@ public class Movement : MonoBehaviour
         rb.AddForce(moveSpeed * movementDirection);
 
         // rotate toward target angle
-        Quaternion targetRotation = Quaternion.AngleAxis(targetRotationAngle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            targetRotation,
-            rotationSpeed * Time.deltaTime
-        );
+        // Quaternion targetRotation = Quaternion.AngleAxis(targetRotationAngle, Vector3.forward);
+        // transform.rotation = Quaternion.Slerp(
+        //     transform.rotation,
+        //     targetRotation,
+        //     rotationSpeed * Time.deltaTime
+        // );
         // transform.rotation = Quaternion.RotateTowards(
         //     transform.rotation,
         //     targetRotation,
