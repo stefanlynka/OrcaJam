@@ -15,17 +15,11 @@ public class Health : MonoBehaviour
     void Start()
     {
         GameObject healthBarGameObject = Instantiate(healthBarPrefab);
-        healthBarInstance = healthBarGameObject.GetComponent<HealthBar>();
         healthBarGameObject.transform.SetParent(transform, false);
+        
+        healthBarInstance = healthBarGameObject.GetComponent<HealthBar>();
+        healthBarInstance.UpdateProgress(currentHealth / maxHealth);
     }
-
-    private float temp = 1.0f;
-    void FixedUpdate()
-    {
-        healthBarInstance.UpdateProgress(temp);
-        temp -= Time.deltaTime/10;
-    }
-
 
     public void SetOnDeathCallback(Action onDeathCallback)
     {
@@ -41,9 +35,10 @@ public class Health : MonoBehaviour
 
     public void ChangeHealth(float amount)
     {
-        currentHealth -= amount;
+        currentHealth += amount;
         currentHealth = Mathf.Max(0, currentHealth);
         healthBarInstance.UpdateProgress(currentHealth / maxHealth);
+        print(currentHealth);
         CheckIfAlive();
     }
 

@@ -7,12 +7,14 @@ public class Cell : MonoBehaviour
 {
     public Collider2D bodyCollider;
     public Collider2D glueCollider;
-
     public ContactFilter2D filter;      // Filter to specify what layers/tags to track
+
     private List<Collider2D> results = new List<Collider2D>();  // To store results each frame
+    private Health health;
 
     public bool IsAttached = false;
-
+    public bool IsDisabled = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class Cell : MonoBehaviour
         //filter.SetLayerMask(LayerMask.GetMask("Body")); // Make sure you add a "Glue" layer to objects with the glue tag.
         //filter.useTriggers = true; // If your glue objects use triggers, enable this.
 
+        health = GetComponent<Health>();
+        health.SetOnDeathCallback(OnDeath);
     }
 
     // Update is called once per frame
@@ -53,6 +57,15 @@ public class Cell : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void OnDeath() {
+
+        transform.SetParent(null);
+
+        // Cell childCell = GetComponentInChildren<Cell>();
+        
+
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
