@@ -8,7 +8,7 @@ public class Cell : MonoBehaviour
     public Collider2D bodyCollider;
     public Collider2D glueCollider;
 
-    public ContactFilter2D filter;      // Filter to specify what layers/tags to track (for glue)
+    public ContactFilter2D filter;      // Filter to specify what layers/tags to track
     private List<Collider2D> results = new List<Collider2D>();  // To store results each frame
 
     public bool IsAttached = false;

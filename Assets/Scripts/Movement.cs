@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer levelBackgroundRenderer;
 
+    public bool ShouldUpdateRotation = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,18 +26,21 @@ public class Movement : MonoBehaviour
         // apply force
         rb.AddForce(moveSpeed * movementDirection);
 
-        // rotate toward target angle
-        // Quaternion targetRotation = Quaternion.AngleAxis(targetRotationAngle, Vector3.forward);
-        // transform.rotation = Quaternion.Slerp(
-        //     transform.rotation,
-        //     targetRotation,
-        //     rotationSpeed * Time.deltaTime
-        // );
-        // transform.rotation = Quaternion.RotateTowards(
-        //     transform.rotation,
-        //     targetRotation,
-        //     rotationSpeed * Time.deltaTime
-        // );
+        if (ShouldUpdateRotation)
+        {
+             //rotate toward target angle
+            Quaternion targetRotation = Quaternion.AngleAxis(targetRotationAngle, Vector3.forward);
+            //transform.rotation = Quaternion.Slerp(
+            //    transform.rotation,
+            //    targetRotation,
+            //    rotationSpeed * Time.deltaTime
+            //);
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.deltaTime
+            );
+        }
     }
 
     void LateUpdate()
