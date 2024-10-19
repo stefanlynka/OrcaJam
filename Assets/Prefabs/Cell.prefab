@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 802302681921413635}
   - component: {fileID: 1231366431557324964}
   - component: {fileID: 5529129606979706235}
+  - component: {fileID: 6698767679740416999}
   m_Layer: 0
   m_Name: Cell
   m_TagString: Untagged
@@ -237,3 +238,20 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  IsAttached: 0
+--- !u!114 &6698767679740416999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897945008738689644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba31b735a463514495dd8c41be1137d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  target: {fileID: 0}
+  healthBarPrefab: {fileID: 1221828939808282531, guid: 3db7f22027861a945bfb0f5b9d02893d, type: 3}
