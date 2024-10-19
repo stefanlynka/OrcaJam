@@ -22,6 +22,7 @@ public class Cell : MonoBehaviour
         //filter.SetLayerMask(LayerMask.GetMask("Body")); // Make sure you add a "Glue" layer to objects with the glue tag.
         //filter.useTriggers = true; // If your glue objects use triggers, enable this.
 
+
     }
 
     // Update is called once per frame
