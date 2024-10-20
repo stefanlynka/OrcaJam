@@ -24,6 +24,7 @@ public class Missile : Projectile
         if (Owner.layer == LayerMask.NameToLayer("PlayerBody"))
         {
             Speed *= PlayerSpeedMod;
+            SpriteRenderer.sprite = PlayerProjectile;
         }
     }
 

@@ -10,6 +10,10 @@ public abstract class Projectile : MonoBehaviour
     public ContactFilter2D filter;      // Filter to specify what layers/tags to track
     private List<Collider2D> results = new List<Collider2D>();  // To store results each frame
 
+    public SpriteRenderer SpriteRenderer;
+    public Sprite PlayerProjectile;
+    public Sprite EnemyProjectile;
+
     public GameObject Owner;
 
     public virtual void Init(GameObject Owner, float direction)

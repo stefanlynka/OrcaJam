@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         movement = GetComponent<Movement>();
+        movement.EnhancedAcceleration = true;
     }
 
     void Update()

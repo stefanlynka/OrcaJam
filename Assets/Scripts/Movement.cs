@@ -12,6 +12,9 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool ShouldUpdateRotation = false;
+    public bool EnhancedAcceleration = false;
+    public float EnhancedAccelerationModifier = 1.5f;
+    public float EnhancementThreshold = 2f;
 
     void Start()
     {
@@ -21,7 +24,23 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         // apply force
-        rb.AddForce(moveSpeed * movementDirection);
+        Vector2 movementVector = movementDirection;
+        if (EnhancedAcceleration)
+        {
+            //if (movementVector.x > 0 && rb.velocity.x < )
+            if (rb.velocity.x * movementVector.x < 0 || Mathf.Abs(rb.velocity.x) < EnhancementThreshold)
+            {
+                //Debug.LogError("Boost X");
+                movementVector.x *= EnhancedAccelerationModifier;
+            }
+            if (rb.velocity.y * movementVector.y < 0 || Mathf.Abs(rb.velocity.y) < EnhancementThreshold)
+            {
+                //Debug.LogError("Boost Y");
+                movementVector.y *= EnhancedAccelerationModifier;
+            }
+            //movementVector
+        }
+        rb.AddForce(moveSpeed * movementVector);
 
         if (ShouldUpdateRotation)
         {
