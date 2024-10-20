@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using static UnityEngine.Networking.UnityWebRequest;
+using Color = UnityEngine.Color;
 
 public enum Faction
 {
@@ -27,6 +29,12 @@ public class Cell : MonoBehaviour
     public bool IsDisabled = false;
     public bool IsAttachedToPlayer = false;
 
+    // Define two colors to interpolate between
+    public Color DefaultColor = new Color(255, 255, 255);
+    public Color FadedColor = new Color(150, 150, 150);
+    public float FadeSpeed = 0.5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +57,21 @@ public class Cell : MonoBehaviour
     void Update()
     {
         CheckCollisions();
+        UpdateColor();
+    }
+
+    private void UpdateColor()
+    {
+        if (IsAttached) return;
+
+        // Calculate the sine wave value (-1 to 1)
+        float t = Mathf.Sin(Time.time * FadeSpeed);
+
+        // Normalize sine wave value to range from 0 to 1
+        float normalizedT = (t + 1f) / 2f;
+
+        // Interpolate between colorA and colorB
+        spriteRenderer.color = Color.Lerp(DefaultColor, FadedColor, normalizedT);
     }
 
     private void CheckCollisions()
@@ -69,6 +92,7 @@ public class Cell : MonoBehaviour
                 transform.SetParent(col.transform);
                 IsAttached = true;
                 gameObject.tag = "Body";
+                spriteRenderer.color = DefaultColor;
 
                 if (col.GetComponentInParent<Player>() != null)
                 {
