@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377902671380573807}
   - component: {fileID: 5125007003810870691}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProjectileSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,9 +56,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1811859543758566039, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5897945008738689644, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
       propertyPath: m_Name
       value: RedCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5897945008738689644, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7148501414905014553, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,8 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d923ff51a2a0194aa2dcf1c4ca599f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyCollider: {fileID: 6119743657195960706}
-  glueCollider: {fileID: 6929232804948055319}
+  BodyCollider: {fileID: 6119743657195960706}
+  GlueCollider: {fileID: 6929232804948055319}
+  RigidBody: {fileID: 0}
   filter:
     useTriggers: 0
     useLayerMask: 0
@@ -146,6 +155,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   IsAttached: 0
+  IsDisabled: 0
   ProjectileSpawner: {fileID: 5125007003810870691}
 --- !u!4 &2796620443611004991 stripped
 Transform:

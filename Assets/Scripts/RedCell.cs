@@ -8,6 +8,14 @@ public class RedCell : Cell
 
     private void Start()
     {
+        OnStart();
+        
+    }
+
+    protected override void OnStart()
+    {
+        base.OnStart();
+
         ProjectileSpawner.Init(gameObject);
     }
     //private void FireProjectile

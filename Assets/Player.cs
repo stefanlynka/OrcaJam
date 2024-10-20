@@ -14,6 +14,6 @@ public class Player : MonoBehaviour
 
     private void OnProjectileCollision(Projectile projectile)
     {
-        HealthBar.ChangeHealth(projectile.Damage);
+        HealthBar.ChangeHealth(-projectile.Damage);
     }
 }
