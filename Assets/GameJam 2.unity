@@ -191,9 +191,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71016b33ab031ce408e6ee2baa0cbd34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelName: 
   Player: {fileID: 1349368221}
+  ProgressBar: {fileID: 0}
+  AttachedCells: 0
+  TargetAttachedCells: 25
+  DeathScreen: {fileID: 0}
+  mainCamera: {fileID: 0}
+  isDead: 0
   ProjectileDistanceLimit: 20
-  EnemyKillCount: 0
 --- !u!1001 &752603626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +211,10 @@ PrefabInstance:
     - target: {fileID: 1450923158862662474, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_Name
       value: RedCell (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450923158862662474, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66d606665bf91e49b045646835f032a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputEnabled: 1
 --- !u!212 &1349368224
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -648,7 +659,11 @@ MonoBehaviour:
   mouseOffsetFactor: 5
   offset: {x: 0, y: 0, z: -5}
   zoomScale: 5
+  cameraZoomLerpSpeed: 0.5
   cam: {fileID: 1365828982}
+  levelBackground: {fileID: 0}
+  zoomOutOnLevelCompleteSpeed: 5
+  maxZoomOnLevelComplete: 100
 --- !u!114 &1365828985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,6 +719,10 @@ PrefabInstance:
     - target: {fileID: 1450923158862662474, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_Name
       value: RedCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450923158862662474, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1034,11 +1053,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3099161708077835449, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.21
+      value: 3.88
       objectReference: {fileID: 0}
     - target: {fileID: 3099161708077835449, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.62
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 3099161708077835449, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
       propertyPath: m_LocalPosition.z
