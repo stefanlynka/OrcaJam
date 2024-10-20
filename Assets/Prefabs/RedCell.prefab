@@ -203,6 +203,9 @@ MonoBehaviour:
   IsAttached: 0
   IsDisabled: 0
   IsAttachedToPlayer: 0
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  FadedColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
+  FadeSpeed: 4
   ProjectileSpawner: {fileID: 5125007003810870691}
 --- !u!4 &2796620443611004991 stripped
 Transform:
