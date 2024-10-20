@@ -13,10 +13,11 @@ public class Missile : Projectile
         
     }
 
-    public override void Init(float direction)
+    public override void Init(GameObject Owner, float direction)
     {
+        base.Init(Owner, direction);
+
         this.direction = direction;
-        //transform.rot
         transform.rotation = Quaternion.AngleAxis(Rotation + direction, Vector3.forward);
     }
 
@@ -25,7 +26,6 @@ public class Missile : Projectile
     protected override void DoUpdate()
     {
         base.DoUpdate();
-        //if (transform.position.magnitude > )
         transform.position += transform.right * Speed * Time.deltaTime;
     }
 

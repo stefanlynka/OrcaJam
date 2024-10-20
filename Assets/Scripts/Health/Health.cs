@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-
     [SerializeField] public float maxHealth = 100.0f;
     [SerializeField] public float currentHealth = 100.0f;
     [SerializeField] GameObject healthBarPrefab;
 
     private Action onDeathCallback;
     private HealthBar healthBarInstance;
-    private bool isDead = false;
+
+    public Action<Projectile> OnProjectileCollision;
 
     void Start()
     {
@@ -42,14 +42,16 @@ public class Health : MonoBehaviour
         CheckIfAlive();
     }
 
-    public void CheckIfAlive()
-    {
-        if (currentHealth <= 0 && !isDead)
-        {
-            isDead = true;
-            onDeathCallback.Invoke();
+    public void CheckIfAlive() {
+        if (currentHealth <= 0) {
+            onDeathCallback?.Invoke();
+            onDeathCallback = null;
         }
+
     }
 
-
+    public void ProjectileCollision(Projectile projectile)
+    {
+        OnProjectileCollision?.Invoke(projectile);
+    }
 }

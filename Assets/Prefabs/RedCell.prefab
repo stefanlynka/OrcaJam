@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d9222a60d0b24449b9def400acb73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8697261482190099306, guid: 5651e78301c378a41939a93caa46d6ef, type: 3}
+  Prefab: {fileID: 8697261482190099306, guid: 5651e78301c378a41939a93caa46d6ef, type: 3}
+  Owner: {fileID: 0}
   spawnInterval: 1
   spawnDistance: 0.25
 --- !u!1001 &5042627851628439846

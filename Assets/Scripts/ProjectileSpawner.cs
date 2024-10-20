@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ProjectileSpawner : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject Prefab;
+    public GameObject Owner;
 
     public float spawnInterval = 5f;
 
@@ -22,15 +23,20 @@ public class ProjectileSpawner : MonoBehaviour
         
     }
 
+    public void Init(GameObject Owner)
+    {
+        this.Owner = Owner;
+    }
+
     private void SpawnProjectile()
     {
-        GameObject newProjectile = Instantiate(prefab);
+        GameObject newProjectile = Instantiate(Prefab);
         newProjectile.transform.position = GetSpawnPosition();
         newProjectile.transform.rotation = transform.rotation;
 
         Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         float rotation = transform.rotation.eulerAngles.z;
-        projectileComponent?.Init(rotation);
+        projectileComponent?.Init(Owner, rotation);
         //if (projectileComponent != null) 
     }
 
