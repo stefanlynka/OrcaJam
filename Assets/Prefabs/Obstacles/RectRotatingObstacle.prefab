@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd52ef3e3d0da6c489304ecf9465baa7, type: 3}
   m_Color: {r: 0.6320754, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,6 +152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RectRotatingObstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 6890034943770453484, guid: 48d725bbd5d30cb4bbfc26974386fd90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a4e71cb6bd83fa246a9bf5eec558189f, type: 3}
     - target: {fileID: 7381009408920228972, guid: 48d725bbd5d30cb4bbfc26974386fd90, type: 3}
       propertyPath: m_Mass
       value: 5000
@@ -192,7 +196,7 @@ MonoBehaviour:
   damageMultiplier: 100
   boxCollider: {fileID: 4878865202536930727}
   rotationRate: 50
-  maxWidth: 15
+  maxWidth: 8
   minWidth: 1
   rectSprite: {fileID: 2601245832198379519}
 --- !u!4 &8202820436827723978 stripped

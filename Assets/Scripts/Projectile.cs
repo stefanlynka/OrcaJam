@@ -25,7 +25,7 @@ public abstract class Projectile : MonoBehaviour
         UpdateFilter();
     }
 
-    
+
 
     private void Update()
     {
@@ -62,12 +62,13 @@ public abstract class Projectile : MonoBehaviour
             }
 
             Rigidbody2D rb = col.gameObject.GetComponentInParent<Rigidbody2D>();
-            if (rb != null) {
-            print(transform.forward);
+            if (rb != null && col.GetComponent<BlueCell>() == null)
+            {
+                print(transform.forward);
                 rb.AddForce(transform.right * 100);
             }
-
             Destroy(gameObject);
+
             break;
         }
     }
