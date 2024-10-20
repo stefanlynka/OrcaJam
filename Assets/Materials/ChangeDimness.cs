@@ -26,7 +26,6 @@ public class ChangeDimness : MonoBehaviour
         if (!stop) {
             material.SetFloat("_DimFactor", Mathf.Lerp(material.GetFloat("_DimFactor"), finalDimFactor, lerpSpeed));
             if (material.GetFloat("_DimFactor") <= finalDimFactor) stop=true;
-            print(material.GetFloat("_DimFactor"));
         }
     }
 }

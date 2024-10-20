@@ -74,7 +74,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DimFactor: 10
+    - _DimFactor: 1
     - _EnableExternalAlpha: 0
     - _Y: 0
     - _x: 50

@@ -16,12 +16,20 @@ public abstract class Projectile : MonoBehaviour
 
     public GameObject Owner;
 
+    public AudioSource Audio;
+    public AudioClip ShootSound;
+    public AudioClip ImpactSound;
+
     public virtual void Init(GameObject Owner, float direction)
     {
         this.direction = direction;
         this.Owner = Owner;
 
+        float dist = (GameManager.Instance.Player.transform.position - transform.position).magnitude;
+        Audio.volume = (dist - 0) / (5 - 0) * (0 - 1) + 1; //(value - from1) / (to1 - from1) * (to2 - from2) + from2;
+        print(Audio.volume + " " + dist + " ");
 
+        Audio.PlayOneShot(ShootSound);
         UpdateFilter();
     }
 
@@ -59,6 +67,10 @@ public abstract class Projectile : MonoBehaviour
             if (health != null)
             {
                 health.ProjectileCollision(this);
+                float dist = (GameManager.Instance.Player.transform.position - transform.position).magnitude;
+                Audio.volume = (dist - 0) / (15 - 0) * (0 - 1) + 1; //(value - from1) / (to1 - from1) * (to2 - from2) + from2;
+                print(Audio.volume);
+                Audio.PlayOneShot(ImpactSound);
             }
 
             Rigidbody2D rb = col.gameObject.GetComponentInParent<Rigidbody2D>();
@@ -67,6 +79,7 @@ public abstract class Projectile : MonoBehaviour
                 print(transform.forward);
                 rb.AddForce(transform.right * 100);
             }
+
             Destroy(gameObject);
 
             break;
