@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d923ff51a2a0194aa2dcf1c4ca599f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Faction: 2
   BodyCollider: {fileID: 6119743657195960706}
   GlueCollider: {fileID: 6929232804948055319}
   RigidBody: {fileID: 0}
@@ -206,10 +205,17 @@ MonoBehaviour:
   DefaultColor: {r: 1, g: 1, b: 1, a: 1}
   FadedColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   FadeSpeed: 4
+  Audio: {fileID: 4149511280695369890}
+  ImpactClip: {fileID: 8300000, guid: 1dd77b3a6ad87a246ae42dc432dbf44c, type: 3}
   ProjectileSpawner: {fileID: 5125007003810870691}
 --- !u!4 &2796620443611004991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7148501414905014553, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
+  m_PrefabInstance: {fileID: 5042627851628439846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4149511280695369890 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -257543186143049340, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
   m_PrefabInstance: {fileID: 5042627851628439846}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &6119743657195960706 stripped

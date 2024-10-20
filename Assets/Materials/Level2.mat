@@ -62,7 +62,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DimFactor: 0.052071318
+    - _DimFactor: 1.1029917
     - _Y: 0
     - _x: 50
     m_Colors: []
