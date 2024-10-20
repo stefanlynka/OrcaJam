@@ -56,6 +56,7 @@ public class TimerManager : MonoBehaviour
 
 public class SimpleTimer
 {
+    private GameObject owner;
     bool repeat = false;
 
     Action callback;
@@ -63,9 +64,10 @@ public class SimpleTimer
     float currentTime = 0;
     float duration = 0;
 
-    public SimpleTimer(Action callback, float duration, bool repeat)
+    public SimpleTimer(Action callback, GameObject owner, float duration, bool repeat)
     {
         this.callback = callback;
+        this.owner = owner;
         this.repeat = repeat;
         this.duration = duration;
     }
@@ -76,6 +78,12 @@ public class SimpleTimer
 
         if (currentTime <= 0)
         {
+            if (owner == null)
+            {
+                TimerManager.Instance.RemoveTimer(this);
+                return;
+            }
+
             callback.Invoke();
 
             if (repeat)

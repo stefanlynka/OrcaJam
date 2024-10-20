@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 377902671380573807}
   - component: {fileID: 5125007003810870691}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ProjectileSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8697261482190099306, guid: 5651e78301c378a41939a93caa46d6ef, type: 3}
   Owner: {fileID: 0}
+  RigidBody: {fileID: 0}
   spawnInterval: 1
   spawnDistance: 0.25
 --- !u!1001 &5042627851628439846
@@ -58,7 +59,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1811859543758566039, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5897945008738689644, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
       propertyPath: m_Name
@@ -66,7 +67,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5897945008738689644, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7148501414905014553, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d923ff51a2a0194aa2dcf1c4ca599f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Faction: 2
   BodyCollider: {fileID: 6119743657195960706}
   GlueCollider: {fileID: 6929232804948055319}
   RigidBody: {fileID: 0}

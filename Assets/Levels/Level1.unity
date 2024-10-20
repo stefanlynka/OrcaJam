@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71016b33ab031ce408e6ee2baa0cbd34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelName: Level2
   Player: {fileID: 1349368221}
   ProgressBar: {fileID: 186259681}
   AttachedCells: 0

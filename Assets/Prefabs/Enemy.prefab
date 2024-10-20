@@ -265,6 +265,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  Health: {fileID: 8152022892646000252}
+  CellPrefab: {fileID: 1450923158862662474, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
 --- !u!114 &8152022892646000252
 MonoBehaviour:
   m_ObjectHideFlags: 0

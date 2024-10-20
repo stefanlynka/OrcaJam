@@ -12,17 +12,18 @@ public class EnemyController : MonoBehaviour
     public ContactFilter2D filter;      // Filter to specify what layers/tags to track
     public Health Health;
 
+    public GameObject CellPrefab;
 
     void Start()
     {
         filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask("Player")); // Make sure you add a "Glue" layer to objects with the glue tag.
+        filter.SetLayerMask(LayerMask.GetMask("PlayerBody")); // Make sure you add a "Glue" layer to objects with the glue tag.
         //filter.useTriggers = true;
 
 
         movement = GetComponent<Movement>();
 
-        TimerManager.Instance.AddTimer(new SimpleTimer(CheckForPlayer, 1, true));
+        TimerManager.Instance.AddTimer(new SimpleTimer(CheckForPlayer, gameObject, 1, true));
         Health.OnProjectileCollision += OnProjectileCollision;
         Health.SetOnDeathCallback(OnDeath);
     }
@@ -54,25 +55,14 @@ public class EnemyController : MonoBehaviour
 
         foreach (var col in results)
         {
-            // Check if the collider has the "Body" tag
-            if (col.CompareTag("Body"))
-            {
-                Debug.LogError("Found Player");
-                Vector2 target = col.transform.position; // Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 self = transform.position;
-                Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-                float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
+            //Debug.LogError("Found Player");
+            Vector2 target = col.transform.position; // Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 self = transform.position;
+            Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
-                //Debug.LogError("Angle: " + angle);
-
-                movement.SetTargetRotation(angle);
-                break;
-                ////Debug.Log("Glue has touched a body: " + col.gameObject.name);
-                //transform.SetParent(col.transform);
-                ////IsAttached = true;
-                //gameObject.tag = "Body";
-                //break;
-            }
+            movement.SetTargetRotation(angle);
+            break;
         }
     }
 
@@ -82,7 +72,15 @@ public class EnemyController : MonoBehaviour
     }
 
     public void OnDeath() {
-        gameObject.SetActive(false);
+        SpawnCell();
+
+        Destroy(gameObject);
+    }
+
+    private void SpawnCell()
+    {
+        GameObject cellObject = Instantiate(CellPrefab);
+        cellObject.transform.position = transform.position;
     }
 }
 

@@ -15,6 +15,10 @@ public class HealthBar : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
+
+        if (GameManager.Instance.CheckIfZoomingOutForLevelCompletion()) {
+            SetVisibility(false);
+        }
     }
 
     public void UpdateProgress(float percentage)

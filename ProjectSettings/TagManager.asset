@@ -12,12 +12,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Player
-  - Enemy
-  - 
-  - 
-  - 
-  - 
+  - PlayerBody
+  - PlayerProjectile
+  - EnemyBody
+  - EnemyProjectile
+  - NeutralBody
+  - NeutralProjectile
   - 
   - 
   - 

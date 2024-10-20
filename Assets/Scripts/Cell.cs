@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Networking.UnityWebRequest;
 
+public enum Faction
+{
+    Player,
+    Enemy,
+    Neutral
+}
+
 public class Cell : MonoBehaviour
 {
+    public Faction Faction = Faction.Neutral;
 
     public Collider2D BodyCollider;
     public Collider2D GlueCollider;
@@ -68,6 +76,7 @@ public class Cell : MonoBehaviour
                     GameManager.Instance.ChangeAttachedCells(1);
                     IsAttachedToPlayer = true;
                 }
+                gameObject.layer = col.gameObject.layer;//LayerMask.NameToLayer("PlayerBody");
                 break;
             }
         }
@@ -108,7 +117,7 @@ public class Cell : MonoBehaviour
                 TimerManager.Instance.AddTimer(new SimpleTimer(() =>
                 {
                     child?.SetIsDisabled(true);
-                }, 0.5f, false));
+                }, gameObject, 0.5f, false));
             }
         }
     }
