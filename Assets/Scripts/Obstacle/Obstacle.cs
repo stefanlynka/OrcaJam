@@ -9,10 +9,14 @@ public class Obstacle : MonoBehaviour
     [SerializeField] public BoxCollider2D boxCollider;
 
     private List<GameObject> collidingObjects = new List<GameObject>();
+    List<GameObject> collidingObjectsCopy = new List<GameObject>();
+
 
     void LateUpdate()
     {
-        foreach (GameObject collidingObject in collidingObjects) {
+        collidingObjectsCopy = new List<GameObject>(collidingObjects);
+        foreach (GameObject collidingObject in collidingObjectsCopy) 
+        {
             if (!collidingObject.CompareTag("Body")) continue;
             Health health = collidingObject.GetComponent<Health>();
             if (health == null) continue;
