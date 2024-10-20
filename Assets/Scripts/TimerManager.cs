@@ -70,6 +70,7 @@ public class SimpleTimer
         this.owner = owner;
         this.repeat = repeat;
         this.duration = duration;
+        currentTime = duration;
     }
 
     public void Update()
