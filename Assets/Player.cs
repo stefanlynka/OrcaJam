@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Health HealthBar;
+    public Health Health;
 
     // Start is called before the first frame update
     void Start()
     {
-        HealthBar.OnProjectileCollision += OnProjectileCollision;
+        Health.OnProjectileCollision += OnProjectileCollision;
     }
 
     private void OnProjectileCollision(Projectile projectile)
     {
-        HealthBar.ChangeHealth(-projectile.Damage);
+        Health.ChangeHealth(-projectile.Damage);
     }
 }

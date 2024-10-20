@@ -8,7 +8,9 @@ public class EnemyController : MonoBehaviour
 
     public Collider2D detectionCollider;
     private List<Collider2D> results = new List<Collider2D>();
+    private List<Collider2D> projectileResults = new List<Collider2D>();
     public ContactFilter2D filter;      // Filter to specify what layers/tags to track
+    public Health Health;
 
 
     void Start()
@@ -21,6 +23,8 @@ public class EnemyController : MonoBehaviour
         movement = GetComponent<Movement>();
 
         TimerManager.Instance.AddTimer(new SimpleTimer(CheckForPlayer, 1, true));
+        Health.OnProjectileCollision += OnProjectileCollision;
+        Health.SetOnDeathCallback(OnDeath);
     }
 
     void Update()
@@ -70,6 +74,15 @@ public class EnemyController : MonoBehaviour
                 //break;
             }
         }
+    }
+
+    private void OnProjectileCollision(Projectile projectile)
+    {
+        Health.ChangeHealth(-projectile.Damage);
+    }
+
+    public void OnDeath() {
+        gameObject.SetActive(false);
     }
 }
 

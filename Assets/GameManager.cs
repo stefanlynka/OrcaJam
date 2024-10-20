@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public float ProjectileDistanceLimit = 0;
 
+    public float EnemyKillCount = 0;
+
     private void Awake()
     {
         if (Instance == null)
