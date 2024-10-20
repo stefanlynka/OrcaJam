@@ -65,9 +65,8 @@ public class Cell : MonoBehaviour
             // Check if the collider has the "Body" tag
             if (col.CompareTag("Body") && !IsDisabled)
             {
-                Debug.Log("Glue has touched a body: " + col.gameObject.name);
+                //Debug.Log("Glue has touched a body: " + col.gameObject.name);
                 transform.SetParent(col.transform);
-                //RigidBody.
                 IsAttached = true;
                 gameObject.tag = "Body";
 
