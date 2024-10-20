@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Networking.UnityWebRequest;
 
 public abstract class Projectile : MonoBehaviour
 {
@@ -57,6 +55,12 @@ public abstract class Projectile : MonoBehaviour
             if (health != null)
             {
                 health.ProjectileCollision(this);
+            }
+
+            Rigidbody2D rb = col.gameObject.GetComponentInParent<Rigidbody2D>();
+            if (rb != null) {
+            print(transform.forward);
+                rb.AddForce(transform.right * 100);
             }
 
             Destroy(gameObject);
