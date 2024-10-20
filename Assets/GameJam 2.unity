@@ -151,11 +151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -3.845
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6
+      value: -0.755
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -730,11 +730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.72
+      value: -5.044
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.57
+      value: -0.874
       objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1059,6 +1059,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 409426675270789402, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242693686459175238, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3099161708077835449, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.05
@@ -1103,9 +1111,21 @@ PrefabInstance:
       propertyPath: levelBackground
       value: 
       objectReference: {fileID: 1879759745}
+    - target: {fileID: 5571553617919130081, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081418938373084086, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7769848802313789779, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769848802313789779, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8304184969154013278, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
       propertyPath: Health

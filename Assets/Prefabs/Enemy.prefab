@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7105183233363060820}
   - component: {fileID: 7352270894452777418}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 5199229202412866567}
   - component: {fileID: 8304184969154013278}
   - component: {fileID: 8152022892646000252}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Body
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49b83e60b41926b4a9ef21a8087e6d6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +172,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 15
-  levelBackground: {fileID: 0}
   movementDirection: {x: 0, y: 0}
   targetRotationAngle: 0
   ShouldUpdateRotation: 1
@@ -296,6 +295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCell
       objectReference: {fileID: 0}
+    - target: {fileID: 1450923158862662474, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.76
@@ -335,6 +338,14 @@ PrefabInstance:
     - target: {fileID: 2796620443611004991, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691794856683805617, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343591802619802086, guid: b8c99a745e1d7d649b376ee2cfd610f4, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,6 +6,7 @@ public class Missile : Projectile
 {
     public float Speed = 0;
     public float Rotation = 0;
+    public float PlayerSpeedMod = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,11 @@ public class Missile : Projectile
 
         this.direction = direction;
         transform.rotation = Quaternion.AngleAxis(Rotation + direction, Vector3.forward);
+
+        if (Owner.layer == LayerMask.NameToLayer("PlayerBody"))
+        {
+            Speed *= PlayerSpeedMod;
+        }
     }
 
 
