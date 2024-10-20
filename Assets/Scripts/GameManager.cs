@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public String nextLevelName;
+    public SpriteRenderer levelRenderer;
 
     public GameObject Player;
 
@@ -77,5 +78,9 @@ public class GameManager : MonoBehaviour
 
     public bool CheckIfZoomingOutForLevelCompletion() {
         return isZoomingOutForLevelCompletion;
+    }
+
+    public SpriteRenderer GetLevelRenderer() {
+        return levelRenderer;
     }
 }

@@ -5,20 +5,17 @@ public class Movement : MonoBehaviour
 
     [SerializeField] public float moveSpeed = 1.0f;
     [SerializeField] public float rotationSpeed = 1.0f;
-    [SerializeField] public GameObject levelBackground;
 
     public Vector2 movementDirection = new Vector2(0, 0);
     public float targetRotationAngle = 0.0f;
 
     private Rigidbody2D rb;
-    private SpriteRenderer levelBackgroundRenderer;
 
     public bool ShouldUpdateRotation = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        levelBackgroundRenderer = levelBackground.GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -64,7 +61,7 @@ public class Movement : MonoBehaviour
 
     public float GetDistancePastLevelBounds()
     {
-        Bounds bounds = levelBackgroundRenderer.bounds;
+        Bounds bounds = GameManager.Instance.GetLevelRenderer().bounds;
         float radius = bounds.extents.x;
         float distanceFromCenter = rb.position.magnitude;
         return Mathf.Max(distanceFromCenter - radius, 0);
