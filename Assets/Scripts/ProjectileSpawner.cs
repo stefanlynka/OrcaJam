@@ -38,11 +38,8 @@ public class ProjectileSpawner : MonoBehaviour
 
         Projectile projectileComponent = projectileObject.GetComponent<Projectile>();
         float rotation = transform.rotation.eulerAngles.z;
-        //RigidBody.velocity
 
         projectileComponent?.Init(Owner, rotation);
-
-        //if (projectileComponent != null) 
     }
 
     protected virtual Vector2 GetSpawnPosition()

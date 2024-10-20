@@ -19,12 +19,11 @@ public abstract class Projectile : MonoBehaviour
         this.direction = direction;
         this.Owner = Owner;
 
-        filter = new ContactFilter2D();
-        //filter.SetLayerMask(LayerMask.GetMask("Body")); // Make sure you add a "Glue" layer to objects with the glue tag.
-        //filter.useTriggers = true; // If your glue objects use triggers, enable this.
 
-        //TimerManager.Instance.AddTimer(new SimpleTimer())
+        UpdateFilter();
     }
+
+    
 
     private void Update()
     {
@@ -52,26 +51,57 @@ public abstract class Projectile : MonoBehaviour
 
         foreach (var col in results)
         {
-            // Check if the collider has the "Body" tag
-            if (col.CompareTag("Body"))
+            if (col.gameObject == Owner) continue;
+
+            Health health = col.GetComponent<Health>();
+            if (health != null)
             {
-                if (col.gameObject == Owner) continue;
-
-                Debug.Log("Projectile touched a body: " + col.gameObject.name);
-                Health health = col.GetComponent<Health>();
-                if (health != null)
-                {
-                    health.ProjectileCollision(this);
-                }
-
-                Destroy(gameObject);
-                break;
+                health.ProjectileCollision(this);
             }
+
+            Destroy(gameObject);
+            break;
         }
     }
 
-    //private void Update()
-    //{
-        
-    //}
+    private void UpdateFilter()
+    {
+        filter = new ContactFilter2D();
+
+        if (Owner.layer == LayerMask.NameToLayer("PlayerBody"))
+        {
+            // Define the layers you want to exclude
+            int bodyLayer = LayerMask.NameToLayer("PlayerBody");
+            int neutralLayer = LayerMask.NameToLayer("NeutralBody");
+            // Create a LayerMask that excludes those layers
+            LayerMask excludedLayers = (1 << bodyLayer) | (1 << neutralLayer);
+            // Invert the LayerMask to include all layers except the excluded ones
+            LayerMask includedLayers = ~excludedLayers;
+            // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
+            filter.SetLayerMask(includedLayers);
+        }
+        else if (Owner.layer == LayerMask.NameToLayer("EnemyBody"))
+        {
+            // Define the layers you want to exclude
+            int bodyLayer = LayerMask.NameToLayer("EnemyBody");
+            int neutralLayer = LayerMask.NameToLayer("NeutralBody");
+            // Create a LayerMask that excludes those layers
+            LayerMask excludedLayers = (1 << bodyLayer) | (1 << neutralLayer);
+            // Invert the LayerMask to include all layers except the excluded ones
+            LayerMask includedLayers = ~excludedLayers;
+            // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
+            filter.SetLayerMask(includedLayers);
+        }
+        else if (Owner.layer == LayerMask.NameToLayer("NeutralBody"))
+        {
+            // Define the layers you want to exclude
+            int neutralLayer = LayerMask.NameToLayer("NeutralBody");
+            // Create a LayerMask that excludes those layers
+            LayerMask excludedLayers = (1 << neutralLayer);
+            // Invert the LayerMask to include all layers except the excluded ones
+            LayerMask includedLayers = ~excludedLayers;
+            // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
+            filter.SetLayerMask(includedLayers);
+        }
+    }
 }

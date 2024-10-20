@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         filter = new ContactFilter2D();
-        filter.SetLayerMask(LayerMask.GetMask("Player")); // Make sure you add a "Glue" layer to objects with the glue tag.
+        filter.SetLayerMask(LayerMask.GetMask("PlayerBody")); // Make sure you add a "Glue" layer to objects with the glue tag.
         //filter.useTriggers = true;
 
 
@@ -50,27 +50,57 @@ public class EnemyController : MonoBehaviour
 
         foreach (var col in results)
         {
-            // Check if the collider has the "Body" tag
-            if (col.CompareTag("Body"))
-            {
-                Debug.LogError("Found Player");
-                Vector2 target = col.transform.position; // Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 self = transform.position;
-                Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-                float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
+            //Debug.LogError("Found Player");
+            Vector2 target = col.transform.position; // Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 self = transform.position;
+            Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
-                //Debug.LogError("Angle: " + angle);
-
-                movement.SetTargetRotation(angle);
-                break;
-                ////Debug.Log("Glue has touched a body: " + col.gameObject.name);
-                //transform.SetParent(col.transform);
-                ////IsAttached = true;
-                //gameObject.tag = "Body";
-                //break;
-            }
+            movement.SetTargetRotation(angle);
+            break;
         }
     }
+
+    //private void UpdateFilter()
+    //{
+    //    filter = new ContactFilter2D();
+
+    //    if (Owner.layer == LayerMask.NameToLayer("PlayerBody"))
+    //    {
+    //        // Define the layers you want to exclude
+    //        int bodyLayer = LayerMask.NameToLayer("PlayerBody");
+    //        int neutralLayer = LayerMask.NameToLayer("NeutralBody");
+    //        // Create a LayerMask that excludes those layers
+    //        LayerMask excludedLayers = (1 << bodyLayer) | (1 << neutralLayer);
+    //        // Invert the LayerMask to include all layers except the excluded ones
+    //        LayerMask includedLayers = ~excludedLayers;
+    //        // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
+    //        filter.SetLayerMask(includedLayers);
+    //    }
+    //    else if (Owner.layer == LayerMask.NameToLayer("EnemyBody"))
+    //    {
+    //        // Define the layers you want to exclude
+    //        int bodyLayer = LayerMask.NameToLayer("EnemyBody");
+    //        int neutralLayer = LayerMask.NameToLayer("NeutralBody");
+    //        // Create a LayerMask that excludes those layers
+    //        LayerMask excludedLayers = (1 << bodyLayer) | (1 << neutralLayer);
+    //        // Invert the LayerMask to include all layers except the excluded ones
+    //        LayerMask includedLayers = ~excludedLayers;
+    //        // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
+    //        filter.SetLayerMask(includedLayers);
+    //    }
+    //    else if (Owner.layer == LayerMask.NameToLayer("NeutralBody"))
+    //    {
+    //        // Define the layers you want to exclude
+    //        int neutralLayer = LayerMask.NameToLayer("NeutralBody");
+    //        // Create a LayerMask that excludes those layers
+    //        LayerMask excludedLayers = (1 << neutralLayer);
+    //        // Invert the LayerMask to include all layers except the excluded ones
+    //        LayerMask includedLayers = ~excludedLayers;
+    //        // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
+    //        filter.SetLayerMask(includedLayers);
+    //    }
+    //}
 }
 
 
