@@ -15,7 +15,7 @@ public class ProjectileSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TimerManager.Instance.AddTimer(new SimpleTimer(SpawnProjectile, spawnInterval, true));
+        TimerManager.Instance.AddTimer(new SimpleTimer(SpawnProjectile, gameObject, spawnInterval, true));
     }
 
     // Update is called once per frame

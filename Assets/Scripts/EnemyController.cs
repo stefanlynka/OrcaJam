@@ -8,8 +8,11 @@ public class EnemyController : MonoBehaviour
 
     public Collider2D detectionCollider;
     private List<Collider2D> results = new List<Collider2D>();
+    private List<Collider2D> projectileResults = new List<Collider2D>();
     public ContactFilter2D filter;      // Filter to specify what layers/tags to track
+    public Health Health;
 
+    public GameObject CellPrefab;
 
     void Start()
     {
@@ -20,7 +23,9 @@ public class EnemyController : MonoBehaviour
 
         movement = GetComponent<Movement>();
 
-        TimerManager.Instance.AddTimer(new SimpleTimer(CheckForPlayer, 1, true));
+        TimerManager.Instance.AddTimer(new SimpleTimer(CheckForPlayer, gameObject, 1, true));
+        Health.OnProjectileCollision += OnProjectileCollision;
+        Health.SetOnDeathCallback(OnDeath);
     }
 
     void Update()
@@ -56,51 +61,36 @@ public class EnemyController : MonoBehaviour
             Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
+            //Debug.LogError("Angle: " + angle);
+
             movement.SetTargetRotation(angle);
             break;
+            ////Debug.Log("Glue has touched a body: " + col.gameObject.name);
+            //transform.SetParent(col.transform);
+            ////IsAttached = true;
+            //gameObject.tag = "Body";
+            //break;
         }
     }
 
-    //private void UpdateFilter()
-    //{
-    //    filter = new ContactFilter2D();
+    private void OnProjectileCollision(Projectile projectile)
+    {
+        Health.ChangeHealth(-projectile.Damage);
+    }
 
-    //    if (Owner.layer == LayerMask.NameToLayer("PlayerBody"))
-    //    {
-    //        // Define the layers you want to exclude
-    //        int bodyLayer = LayerMask.NameToLayer("PlayerBody");
-    //        int neutralLayer = LayerMask.NameToLayer("NeutralBody");
-    //        // Create a LayerMask that excludes those layers
-    //        LayerMask excludedLayers = (1 << bodyLayer) | (1 << neutralLayer);
-    //        // Invert the LayerMask to include all layers except the excluded ones
-    //        LayerMask includedLayers = ~excludedLayers;
-    //        // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
-    //        filter.SetLayerMask(includedLayers);
-    //    }
-    //    else if (Owner.layer == LayerMask.NameToLayer("EnemyBody"))
-    //    {
-    //        // Define the layers you want to exclude
-    //        int bodyLayer = LayerMask.NameToLayer("EnemyBody");
-    //        int neutralLayer = LayerMask.NameToLayer("NeutralBody");
-    //        // Create a LayerMask that excludes those layers
-    //        LayerMask excludedLayers = (1 << bodyLayer) | (1 << neutralLayer);
-    //        // Invert the LayerMask to include all layers except the excluded ones
-    //        LayerMask includedLayers = ~excludedLayers;
-    //        // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
-    //        filter.SetLayerMask(includedLayers);
-    //    }
-    //    else if (Owner.layer == LayerMask.NameToLayer("NeutralBody"))
-    //    {
-    //        // Define the layers you want to exclude
-    //        int neutralLayer = LayerMask.NameToLayer("NeutralBody");
-    //        // Create a LayerMask that excludes those layers
-    //        LayerMask excludedLayers = (1 << neutralLayer);
-    //        // Invert the LayerMask to include all layers except the excluded ones
-    //        LayerMask includedLayers = ~excludedLayers;
-    //        // Apply the LayerMask to the filter, only allowing detection on layers except the excluded ones
-    //        filter.SetLayerMask(includedLayers);
-    //    }
-    //}
+    public void OnDeath() {
+        //gameObject.SetActive(false);
+
+        SpawnCell();
+
+        Destroy(gameObject);
+    }
+
+    private void SpawnCell()
+    {
+        GameObject cellObject = Instantiate(CellPrefab);
+        cellObject.transform.position = transform.position;
+    }
 }
 
 

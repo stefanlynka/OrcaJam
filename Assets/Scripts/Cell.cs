@@ -106,7 +106,7 @@ public class Cell : MonoBehaviour
                 TimerManager.Instance.AddTimer(new SimpleTimer(() =>
                 {
                     child?.SetIsDisabled(true);
-                }, 0.5f, false));
+                }, gameObject, 0.5f, false));
             }
         }
     }
