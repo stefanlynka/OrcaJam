@@ -61,12 +61,18 @@ public class CameraFollow : MonoBehaviour
 
         }
         //DEBUG
-        // if (Input.GetKey(KeyCode.Z)) {
-        //     zoomScale += 5 * Time.deltaTime;
-        // } else if (Input.GetKey(KeyCode.C)) {
-        //     zoomScale -= 5 * Time.deltaTime;
-        // }
-        // zoomScale = Mathf.Max(zoomScale, 1);
+        float mouseScrollWheelAmount = Input.GetAxis("Mouse ScrollWheel");
+        float change = -1 * mouseScrollWheelAmount * 750 * Time.deltaTime;
+        zoomScale += change;
+        //if (Input.GetKey(KeyCode.Z))
+        //{
+        //    zoomScale += 5 * Time.deltaTime;
+        //}
+        //else if (Input.GetKey(KeyCode.C))
+        //{
+        //    zoomScale -= 5 * Time.deltaTime;
+        //}
+        zoomScale = Mathf.Max(zoomScale, 1);
     }
 
     public void SetZoom(float newZoom)
