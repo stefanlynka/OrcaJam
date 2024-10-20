@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressBarRootContainer: {fileID: 3615750928576230574}
   progressBarRenderer: {fileID: 8728327999258200021}
+  progressBarBackground: {fileID: 6437584260464672958}
   colorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
