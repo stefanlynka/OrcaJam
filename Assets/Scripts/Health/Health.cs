@@ -11,12 +11,13 @@ public class Health : MonoBehaviour
 
     private Action onDeathCallback;
     private HealthBar healthBarInstance;
+    private bool isDead = false;
 
     void Start()
     {
         GameObject healthBarGameObject = Instantiate(healthBarPrefab);
         healthBarGameObject.transform.SetParent(transform, false);
-        
+
         healthBarInstance = healthBarGameObject.GetComponent<HealthBar>();
         healthBarInstance.UpdateProgress(currentHealth / maxHealth);
     }
@@ -38,12 +39,16 @@ public class Health : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Max(0, currentHealth);
         healthBarInstance.UpdateProgress(currentHealth / maxHealth);
-        print(currentHealth);
         CheckIfAlive();
     }
 
-    public void CheckIfAlive() {
-        if (currentHealth <= 0) onDeathCallback.Invoke();
+    public void CheckIfAlive()
+    {
+        if (currentHealth <= 0 && !isDead)
+        {
+            isDead = true;
+            onDeathCallback.Invoke();
+        }
     }
 
 

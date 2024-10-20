@@ -15,7 +15,7 @@ public class Obstacle : MonoBehaviour
             if (!collidingObject.CompareTag("Body")) continue;
             Health health = collidingObject.GetComponent<Health>();
             if (health == null) continue;
-            health.ChangeHealth(-25 * Time.deltaTime);
+            health.ChangeHealth(-100 * Time.deltaTime);
         }
     }
 
