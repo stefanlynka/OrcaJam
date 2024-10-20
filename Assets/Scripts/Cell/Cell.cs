@@ -26,6 +26,9 @@ public class Cell : MonoBehaviour
     public Color FadedColor = new Color(150, 150, 150);
     public float FadeSpeed = 0.5f;
 
+    public AudioSource Audio;
+    public AudioClip ImpactClip;
+
 
     // Start is called before the first frame update
     void Start()
@@ -141,7 +144,16 @@ public class Cell : MonoBehaviour
 
     public virtual void OnProjectileCollision(Projectile projectile)
     {
-        if (!IsDisabled) health.ChangeHealth(-projectile.Damage);
+        if (!IsDisabled)
+        {
+
+            health.ChangeHealth(-projectile.Damage);
+
+            float dist = (GameManager.Instance.Player.transform.position - transform.position).magnitude;
+            Audio.volume = (dist - 0) / (15 - 0) * (0 - 1) + 1; //(value - from1) / (to1 - from1) * (to2 - from2) + from2;
+            Audio.clip = ImpactClip;
+            Audio.Play();
+        }
     }
 
 }
