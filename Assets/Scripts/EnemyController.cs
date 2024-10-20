@@ -61,15 +61,8 @@ public class EnemyController : MonoBehaviour
             Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
-            //Debug.LogError("Angle: " + angle);
-
             movement.SetTargetRotation(angle);
             break;
-            ////Debug.Log("Glue has touched a body: " + col.gameObject.name);
-            //transform.SetParent(col.transform);
-            ////IsAttached = true;
-            //gameObject.tag = "Body";
-            //break;
         }
     }
 
@@ -79,8 +72,6 @@ public class EnemyController : MonoBehaviour
     }
 
     public void OnDeath() {
-        //gameObject.SetActive(false);
-
         SpawnCell();
 
         Destroy(gameObject);
