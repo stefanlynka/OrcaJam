@@ -68,7 +68,6 @@ public class Cell : MonoBehaviour
 
     private void OnDeath()
     {
-
         transform.SetParent(null);
         SetIsDisabled(true);
         
@@ -80,13 +79,13 @@ public class Cell : MonoBehaviour
             rigidBody.angularDrag = 0.6f;
             rigidBody.drag = 3;
         }
-
     }
 
         private void SetIsDisabled(bool isDisabled)
     {
         IsDisabled = isDisabled;
-        health.SetHealth(0);
+        health.SetHealthBarVisiblity(false);
+
         if (isDisabled)
         {
             // set tint to darker
@@ -101,12 +100,7 @@ public class Cell : MonoBehaviour
                 }, 0.5f, false));
             }
         }
-        else
-        {
-
-        }
     }
-
         private void OnProjectileCollision(Projectile projectile)
     {
         health.ChangeHealth(-projectile.Damage);

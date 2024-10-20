@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     private HealthBar healthBarInstance;
 
     public Action<Projectile> OnProjectileCollision;
+   
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class Health : MonoBehaviour
 
     public void SetHealth(float newHealth)
     {
-        currentHealth = Mathf.Min(newHealth, maxHealth);
+        currentHealth = Mathf.Clamp(newHealth, 0, maxHealth);
         healthBarInstance.UpdateProgress(currentHealth / maxHealth);
         CheckIfAlive();
     }
@@ -40,6 +41,10 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Max(0, currentHealth);
         healthBarInstance.UpdateProgress(currentHealth / maxHealth);
         CheckIfAlive();
+    }
+
+    public void SetHealthBarVisiblity(bool isVisible) {
+        healthBarInstance.SetVisibility(isVisible);
     }
 
     public void CheckIfAlive() {
