@@ -6,6 +6,7 @@ public class ProjectileSpawner : MonoBehaviour
 {
     public GameObject Prefab;
     public GameObject Owner;
+    public Rigidbody2D RigidBody;
 
     public float spawnInterval = 5f;
 
@@ -23,20 +24,24 @@ public class ProjectileSpawner : MonoBehaviour
         
     }
 
-    public void Init(GameObject Owner)
+    public void Init(GameObject owner)
     {
-        this.Owner = Owner;
+        this.Owner = owner;
+        //this.RigidBody = rigidBody;
     }
 
     private void SpawnProjectile()
     {
-        GameObject newProjectile = Instantiate(Prefab);
-        newProjectile.transform.position = GetSpawnPosition();
-        newProjectile.transform.rotation = transform.rotation;
+        GameObject projectileObject = Instantiate(Prefab);
+        projectileObject.transform.position = GetSpawnPosition();
+        projectileObject.transform.rotation = transform.rotation;
 
-        Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
+        Projectile projectileComponent = projectileObject.GetComponent<Projectile>();
         float rotation = transform.rotation.eulerAngles.z;
+        //RigidBody.velocity
+
         projectileComponent?.Init(Owner, rotation);
+
         //if (projectileComponent != null) 
     }
 

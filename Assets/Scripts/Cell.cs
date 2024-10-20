@@ -5,8 +5,9 @@ using static UnityEngine.Networking.UnityWebRequest;
 
 public class Cell : MonoBehaviour
 {
-    public Collider2D bodyCollider;
-    public Collider2D glueCollider;
+    public Collider2D BodyCollider;
+    public Collider2D GlueCollider;
+    public Rigidbody2D RigidBody;
     public ContactFilter2D filter;      // Filter to specify what layers/tags to track
 
     private List<Collider2D> results = new List<Collider2D>();  // To store results each frame
@@ -18,21 +19,22 @@ public class Cell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //IsAttached = false;
+        OnStart();
+    }
 
+    protected virtual void OnStart()
+    {
         filter = new ContactFilter2D();
-        //filter.SetLayerMask(LayerMask.GetMask("Body")); // Make sure you add a "Glue" layer to objects with the glue tag.
-        //filter.useTriggers = true; // If your glue objects use triggers, enable this.
 
         health = GetComponent<Health>();
         health.SetOnDeathCallback(OnDeath);
+
+        health.OnProjectileCollision += OnProjectileCollision;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //bodyCollider.
-
         CheckCollisions();
     }
 
@@ -43,7 +45,7 @@ public class Cell : MonoBehaviour
         results.Clear();
 
         // Check for overlaps with certain colliders
-        glueCollider.OverlapCollider(filter, results);
+        GlueCollider.OverlapCollider(filter, results);
 
         foreach (var col in results)
         {
@@ -52,6 +54,7 @@ public class Cell : MonoBehaviour
             {
                 Debug.Log("Glue has touched a body: " + col.gameObject.name);
                 transform.SetParent(col.transform);
+                //RigidBody.
                 IsAttached = true;
                 gameObject.tag = "Body";
                 break;
@@ -63,13 +66,28 @@ public class Cell : MonoBehaviour
 
         transform.SetParent(null);
 
-        // Cell childCell = GetComponentInChildren<Cell>();
-        
+        Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        if (rigidBody == null)
+        {
+            rigidBody = gameObject.AddComponent<Rigidbody2D>();
+            rigidBody.gravityScale = 0;
+            rigidBody.angularDrag = 0.6f;
+            rigidBody.drag = 3;
+        }
 
+
+        // Cell childCell = GetComponentInChildren<Cell>();
+
+
+    }
+
+    private void OnProjectileCollision(Projectile projectile)
+    {
+        health.ChangeHealth(-projectile.Damage);
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
-        
+
     //}
 }

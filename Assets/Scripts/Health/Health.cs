@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Max(0, currentHealth);
         healthBarInstance.UpdateProgress(currentHealth / maxHealth);
-        print(currentHealth);
+        //print(currentHealth);
         CheckIfAlive();
     }
 

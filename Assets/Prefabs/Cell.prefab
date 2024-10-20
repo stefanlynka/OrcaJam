@@ -222,8 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708199578a2431641b7952b25ec8133f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyCollider: {fileID: 1231366431557324964}
-  glueCollider: {fileID: 2725407671605034033}
+  BodyCollider: {fileID: 1231366431557324964}
+  GlueCollider: {fileID: 2725407671605034033}
+  RigidBody: {fileID: 0}
   filter:
     useTriggers: 0
     useLayerMask: 0
@@ -239,6 +240,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   IsAttached: 0
+  IsDisabled: 0
 --- !u!114 &6698767679740416999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,5 +255,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  target: {fileID: 0}
   healthBarPrefab: {fileID: 1221828939808282531, guid: 3db7f22027861a945bfb0f5b9d02893d, type: 3}
