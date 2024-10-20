@@ -18,19 +18,13 @@ public class ProjectileSpawner : MonoBehaviour
         TimerManager.Instance.AddTimer(new SimpleTimer(SpawnProjectile, gameObject, spawnInterval, true));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Init(GameObject owner)
+    public virtual void Init(GameObject owner)
     {
         this.Owner = owner;
         //this.RigidBody = rigidBody;
     }
 
-    private void SpawnProjectile()
+    protected virtual void SpawnProjectile()
     {
         GameObject projectileObject = Instantiate(Prefab);
         projectileObject.transform.position = GetSpawnPosition();

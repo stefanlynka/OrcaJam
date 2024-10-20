@@ -5,17 +5,9 @@ using UnityEngine;
 using static UnityEngine.Networking.UnityWebRequest;
 using Color = UnityEngine.Color;
 
-public enum Faction
-{
-    Player,
-    Enemy,
-    Neutral
-}
 
 public class Cell : MonoBehaviour
 {
-    public Faction Faction = Faction.Neutral;
-
     public Collider2D BodyCollider;
     public Collider2D GlueCollider;
     public Rigidbody2D RigidBody;
