@@ -38,6 +38,6 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _DimFactor: 0.11022992
+    - _DimFactor: 0.050000187
     m_Colors: []
   m_BuildTextureStacks: []

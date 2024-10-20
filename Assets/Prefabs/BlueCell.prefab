@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f77be66ddc334d48a845be39ffd94b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Faction: 2
   BodyCollider: {fileID: 6119743657195960706}
   GlueCollider: {fileID: 6929232804948055319}
   RigidBody: {fileID: 0}
@@ -175,9 +174,9 @@ MonoBehaviour:
   IsAttached: 0
   IsDisabled: 0
   IsAttachedToPlayer: 0
-  DefaultColor: {r: 255, g: 255, b: 255, a: 1}
-  FadedColor: {r: 150, g: 150, b: 150, a: 1}
-  FadeSpeed: 0.5
+  DefaultColor: {r: 0, g: 0.8039216, b: 1, a: 1}
+  FadedColor: {r: 0, g: 0.50055504, b: 0.6226415, a: 1}
+  FadeSpeed: 4
 --- !u!61 &6119743657195960706 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 1231366431557324964, guid: 0f9f61331abeaa148809b0743dd9b6bc, type: 3}

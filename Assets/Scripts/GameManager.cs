@@ -23,9 +23,28 @@ public class GameManager : MonoBehaviour
     private bool isZoomingOutForLevelCompletion = false;
     public AudioSource expandSound;
 
+    public AudioSource BackgroundAudio;
+    public float AudioStartTime = 0;
+
     public void Start()
     {
         ProgressBar.UpdateProgress(0);
+
+        StartBackgroundAudio();
+    }
+
+    private void StartBackgroundAudio()
+    {
+        if (BackgroundAudio != null && BackgroundAudio.clip != null)
+        {
+            // Set the start time in seconds
+            BackgroundAudio.time = AudioStartTime;
+
+            BackgroundAudio.volume = 0;
+
+            // Play the audio from the specified time
+            BackgroundAudio.Play();
+        }
     }
 
     private void Awake()
@@ -43,6 +62,11 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         if (isDead && Input.GetKey(KeyCode.Space)) SetIsDeadState(false);
+
+        if (BackgroundAudio != null && BackgroundAudio.volume < 1)
+        {
+            BackgroundAudio.volume += 0.0025f;
+        }
     }
 
     public void ChangeAttachedCells(float amount) {
