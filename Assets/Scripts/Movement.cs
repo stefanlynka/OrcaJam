@@ -30,12 +30,12 @@ public class Movement : MonoBehaviour
             //if (movementVector.x > 0 && rb.velocity.x < )
             if (rb.velocity.x * movementVector.x < 0 || Mathf.Abs(rb.velocity.x) < EnhancementThreshold)
             {
-                Debug.LogError("Boost X");
+                //Debug.LogError("Boost X");
                 movementVector.x *= EnhancedAccelerationModifier;
             }
             if (rb.velocity.y * movementVector.y < 0 || Mathf.Abs(rb.velocity.y) < EnhancementThreshold)
             {
-                Debug.LogError("Boost Y");
+                //Debug.LogError("Boost Y");
                 movementVector.y *= EnhancedAccelerationModifier;
             }
             //movementVector
