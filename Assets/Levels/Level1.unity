@@ -1384,6 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: Level2
+  levelRenderer: {fileID: 1879759746}
   Player: {fileID: 1349368221}
   ProgressBar: {fileID: 186259681}
   AttachedCells: 0
@@ -2329,7 +2330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 10
-  levelBackground: {fileID: 1879759745}
+  levelRenderer: {fileID: 0}
   movementDirection: {x: 0, y: 0}
   targetRotationAngle: 0
   ShouldUpdateRotation: 0
