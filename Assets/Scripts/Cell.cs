@@ -86,6 +86,8 @@ public class Cell : MonoBehaviour
         SetIsDisabled(true);
         transform.SetParent(null);
 
+        gameObject.tag = "Untagged";
+
         Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
         if (rigidBody == null)
         {
