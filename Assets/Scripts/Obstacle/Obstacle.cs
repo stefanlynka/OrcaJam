@@ -5,7 +5,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
 
-    [SerializeField] BoxCollider2D boxCollider;
+    public float damageMultiplier = 0;
+    [SerializeField] public BoxCollider2D boxCollider;
 
     private List<GameObject> collidingObjects = new List<GameObject>();
 
@@ -15,7 +16,7 @@ public class Obstacle : MonoBehaviour
             if (!collidingObject.CompareTag("Body")) continue;
             Health health = collidingObject.GetComponent<Health>();
             if (health == null) continue;
-            health.ChangeHealth(-100 * Time.deltaTime);
+            health.ChangeHealth(-damageMultiplier * Time.deltaTime);
         }
     }
 

@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708199578a2431641b7952b25ec8133f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Faction: 2
   BodyCollider: {fileID: 1231366431557324964}
   GlueCollider: {fileID: 2725407671605034033}
   RigidBody: {fileID: 0}
@@ -241,6 +242,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   IsAttached: 0
   IsDisabled: 0
+  IsAttachedToPlayer: 0
 --- !u!114 &6698767679740416999
 MonoBehaviour:
   m_ObjectHideFlags: 0
