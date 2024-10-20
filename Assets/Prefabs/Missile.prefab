@@ -191,6 +191,10 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  SpriteRenderer: {fileID: 980731363523624619}
+  PlayerProjectile: {fileID: 21300000, guid: dac1b429e4545d04385bad85db3c47a8, type: 3}
+  EnemyProjectile: {fileID: 21300000, guid: 7b0cafd0c6031e841a91fd47fadb87a3, type: 3}
   Owner: {fileID: 0}
   Speed: 2
   Rotation: 0
+  PlayerSpeedMod: 3

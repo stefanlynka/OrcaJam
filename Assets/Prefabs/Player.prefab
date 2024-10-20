@@ -120,6 +120,9 @@ MonoBehaviour:
   movementDirection: {x: 0, y: 0}
   targetRotationAngle: 0
   ShouldUpdateRotation: 0
+  EnhancedAcceleration: 0
+  EnhancedAccelerationModifier: 10
+  EnhancementThreshold: 2
 --- !u!50 &166558797600235651
 Rigidbody2D:
   serializedVersion: 4
