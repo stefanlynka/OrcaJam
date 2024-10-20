@@ -59,7 +59,7 @@ public class EnemyController : MonoBehaviour
                 Vector2 directionVector = target - self; // Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
                 float angle = Mathf.Atan2(directionVector.y, directionVector.x) * Mathf.Rad2Deg;
 
-                Debug.LogError("Angle: " + angle);
+                //Debug.LogError("Angle: " + angle);
 
                 movement.SetTargetRotation(angle);
                 break;

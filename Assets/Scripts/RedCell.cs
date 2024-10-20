@@ -6,6 +6,9 @@ public class RedCell : Cell
 {
     public ProjectileSpawner ProjectileSpawner;
 
-
+    private void Start()
+    {
+        ProjectileSpawner.Init(gameObject);
+    }
     //private void FireProjectile
 }
