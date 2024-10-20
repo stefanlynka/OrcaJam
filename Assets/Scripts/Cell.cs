@@ -17,6 +17,7 @@ public class Cell : MonoBehaviour
 
     public bool IsAttached = false;
     public bool IsDisabled = false;
+    public bool IsAttachedToPlayer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,12 @@ public class Cell : MonoBehaviour
                 //RigidBody.
                 IsAttached = true;
                 gameObject.tag = "Body";
+
+                if (col.GetComponentInParent<Player>() != null)
+                {
+                    GameManager.Instance.ChangeAttachedCells(1);
+                    IsAttachedToPlayer = true;
+                }
                 break;
             }
         }
@@ -68,9 +75,9 @@ public class Cell : MonoBehaviour
 
     private void OnDeath()
     {
-        transform.SetParent(null);
         SetIsDisabled(true);
-        
+        transform.SetParent(null);
+
         Rigidbody2D rigidBody = gameObject.GetComponent<Rigidbody2D>();
         if (rigidBody == null)
         {
@@ -81,13 +88,17 @@ public class Cell : MonoBehaviour
         }
     }
 
-        private void SetIsDisabled(bool isDisabled)
+
+    private void SetIsDisabled(bool isDisabled)
     {
         IsDisabled = isDisabled;
-        health.SetHealthBarVisiblity(false);
 
         if (isDisabled)
         {
+
+            health.SetHealthBarVisiblity(false);
+            if (IsAttachedToPlayer) GameManager.Instance.ChangeAttachedCells(-1);
+
             // set tint to darker
             spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f, 1);
 
@@ -101,9 +112,10 @@ public class Cell : MonoBehaviour
             }
         }
     }
-        private void OnProjectileCollision(Projectile projectile)
+
+    private void OnProjectileCollision(Projectile projectile)
     {
-        health.ChangeHealth(-projectile.Damage);
+        if (!IsDisabled) health.ChangeHealth(-projectile.Damage);
     }
 
 }
