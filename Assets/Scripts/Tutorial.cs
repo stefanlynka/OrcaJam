@@ -12,6 +12,7 @@ public class Tutorial : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene(nextLevelName);
+            SwooshAudio.Instance.PlaySwoosh();
         }
     }
 

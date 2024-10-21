@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     public float ProjectileDistanceLimit = 0;
 
     private bool isZoomingOutForLevelCompletion = false;
-    public AudioSource expandSound;
 
     public void Start()
     {
@@ -69,7 +68,7 @@ public class GameManager : MonoBehaviour
     public void OnAttachedTargetReached() {
         Player.GetComponent<PlayerInput>()?.SetInputEnabled(false);
         mainCamera.GetComponent<CameraFollow>().ZoomOutOnLevelCompletion(LoadNextLevel);
-        expandSound?.Play();
+        SwooshAudio.Instance.PlaySwoosh();
     }
 
     public void LoadNextLevel() {
