@@ -1144,7 +1144,7 @@ MonoBehaviour:
   Player: {fileID: 1349368221}
   ProgressBar: {fileID: 1317528102}
   AttachedCells: 0
-  TargetAttachedCells: 5
+  TargetAttachedCells: 15
   DeathScreen: {fileID: 560903560}
   mainCamera: {fileID: 1365828982}
   isDead: 0
