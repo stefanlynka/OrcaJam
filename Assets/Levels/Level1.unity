@@ -1102,11 +1102,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1651197846029616352, guid: 84fb9035396b8d8458e9dfc5a79e0f97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.41
+      value: 18.9
       objectReference: {fileID: 0}
     - target: {fileID: 1651197846029616352, guid: 84fb9035396b8d8458e9dfc5a79e0f97, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -42.65
+      value: -41.8
       objectReference: {fileID: 0}
     - target: {fileID: 1651197846029616352, guid: 84fb9035396b8d8458e9dfc5a79e0f97, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3661,6 +3661,8 @@ MonoBehaviour:
   levelRenderer: {fileID: 1879759746}
   enemyPrefabs:
   - {fileID: 7769848802313789779, guid: a12695c38b6317f478b29f8fb22ad7fd, type: 3}
+  - {fileID: 7830417216343961895, guid: 7bfdcdf0124067147b25c2b4c8c01c58, type: 3}
+  - {fileID: 3435500467579263602, guid: 5f141949047ea9c40a6756d2721b2af9, type: 3}
   spawnRate: 7
 --- !u!4 &1642586636
 Transform:

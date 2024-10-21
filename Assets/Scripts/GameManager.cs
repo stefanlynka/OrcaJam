@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public ProgressBar ProgressBar;
     public float AttachedCells = 0.0f;
-    public float TargetAttachedCells = 25.0f;
+    public float TargetAttachedCells = 5.0f;
 
     public GameObject DeathScreen;
     public Camera mainCamera;
